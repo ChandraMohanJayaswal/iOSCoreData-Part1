@@ -11,7 +11,4 @@ struct User {
     var userName: String
     var password: String
     
-    func isValidUser() -> Bool {
-        return userName == "chandra" && password == "chandra"
-    }
 }

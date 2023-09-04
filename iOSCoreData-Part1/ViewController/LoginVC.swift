@@ -13,13 +13,36 @@ class LoginVC: BaseVC {
 
     // MARK: - PRIVATE METHODS
     
+    func save(user: User) {
+        do {
+            try KeychainHandler.save(
+                service: "iOSCoreData",
+                account: user.userName,
+                password: user.password.data(using: .utf8) ?? Data()
+            )
+        } catch {
+            print(error)
+        }
+    }
+    
+    func isValidPassword(userName: String, password: String) -> Bool {
+        guard let data =  KeychainHandler.get(service: "iOSCoreData", account: userName) else {
+            print("Failed to read password")
+            return false
+        }
+        
+        let savedPassword = String(decoding: data, as: UTF8.self)
+        print("Read password: \(password)")
+        return savedPassword == password
+    }
+    
     // MARK: - PUBLIC METHODS
     
     // MARK: - ACATION METHODS
     
     @IBAction func btnLoginAction(_ sender: Any) {
         let user = User(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "")
-        if user.isValidUser() {
+        if self.isValidPassword(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "") {
             self.moveToTabBarController()
         } else {
             let alert = UIAlertController(title: "Message", message: "Invalid Username or Passoword!", preferredStyle: .alert)

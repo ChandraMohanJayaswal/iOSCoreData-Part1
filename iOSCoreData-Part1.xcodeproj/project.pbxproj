@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97462F8E2AA58F520075BA8E /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97462F8D2AA58F520075BA8E /* PersistentStorage.swift */; };
+		97462F912AA60D1F0075BA8E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97462F8F2AA60D1F0075BA8E /* CoreData.xcdatamodeld */; };
+		97462F932AA612500075BA8E /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97462F922AA612500075BA8E /* KeychainHandler.swift */; };
 		97464E1F2AA4DD5800A247A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E1E2AA4DD5800A247A9 /* AppDelegate.swift */; };
 		97464E212AA4DD5800A247A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E202AA4DD5800A247A9 /* SceneDelegate.swift */; };
 		97464E232AA4DD5800A247A9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E222AA4DD5800A247A9 /* LoginVC.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97462F8D2AA58F520075BA8E /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		97462F902AA60D1F0075BA8E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		97462F922AA612500075BA8E /* KeychainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHandler.swift; sourceTree = "<group>"; };
 		97464E1B2AA4DD5800A247A9 /* iOSCoreData-Part1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOSCoreData-Part1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97464E1E2AA4DD5800A247A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97464E202AA4DD5800A247A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97462F8C2AA58EE70075BA8E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				97462F8F2AA60D1F0075BA8E /* CoreData.xcdatamodeld */,
+				97462F8D2AA58F520075BA8E /* PersistentStorage.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		97464E122AA4DD5800A247A9 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +130,7 @@
 		97464E1D2AA4DD5800A247A9 /* iOSCoreData-Part1 */ = {
 			isa = PBXGroup;
 			children = (
+				97462F8C2AA58EE70075BA8E /* CoreData */,
 				97464E522AA4DECE00A247A9 /* ViewController */,
 				97464E512AA4DEA800A247A9 /* Utility */,
 				97464E502AA4DE9500A247A9 /* Handler */,
@@ -166,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				97464E532AA4DF5900A247A9 /* NavigationHandler.swift */,
+				97462F922AA612500075BA8E /* KeychainHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -326,10 +343,13 @@
 				97464E602AA4E53D00A247A9 /* InboxVC.swift in Sources */,
 				97464E542AA4DF5900A247A9 /* NavigationHandler.swift in Sources */,
 				97464E622AA4E59200A247A9 /* SentVC.swift in Sources */,
+				97462F8E2AA58F520075BA8E /* PersistentStorage.swift in Sources */,
 				97464E232AA4DD5800A247A9 /* LoginVC.swift in Sources */,
 				97464E562AA4DF8300A247A9 /* Contants.swift in Sources */,
 				97464E582AA4DFD200A247A9 /* TabBarController.swift in Sources */,
 				97464E5E2AA4E21900A247A9 /* User.swift in Sources */,
+				97462F932AA612500075BA8E /* KeychainHandler.swift in Sources */,
+				97462F912AA60D1F0075BA8E /* CoreData.xcdatamodeld in Sources */,
 				97464E1F2AA4DD5800A247A9 /* AppDelegate.swift in Sources */,
 				97464E5C2AA4E15900A247A9 /* BaseVC.swift in Sources */,
 				97464E212AA4DD5800A247A9 /* SceneDelegate.swift in Sources */,
@@ -674,6 +694,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		97462F8F2AA60D1F0075BA8E /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				97462F902AA60D1F0075BA8E /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 97462F902AA60D1F0075BA8E /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 97464E132AA4DD5800A247A9 /* Project object */;
 }
