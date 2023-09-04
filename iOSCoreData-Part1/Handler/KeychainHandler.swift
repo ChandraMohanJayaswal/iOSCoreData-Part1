@@ -15,14 +15,13 @@ class KeychainHandler {
     }
     
     static func save(
-        service: String,
-        account: String,
+        userName: String,
         password: Data
     ) throws {
         let query: [String: AnyObject] = [
             kSecClass       as String: kSecClassGenericPassword,
-            kSecAttrService as String: service as AnyObject,
-            kSecAttrAccount as String: account as AnyObject,
+            kSecAttrService as String: Bundle.main.bundleIdentifier! as AnyObject,
+            kSecAttrAccount as String: userName as AnyObject,
             kSecValueData   as String: password as AnyObject
         ]
         
@@ -40,13 +39,12 @@ class KeychainHandler {
     }
     
     static func get(
-        service: String,
-        account: String
+        userName: String
     ) -> Data? {
         let query: [String: AnyObject] = [
             kSecClass       as String: kSecClassGenericPassword,
-            kSecAttrService as String: service as AnyObject,
-            kSecAttrAccount as String: account as AnyObject,
+            kSecAttrService as String: Bundle.main.bundleIdentifier! as AnyObject,
+            kSecAttrAccount as String: userName as AnyObject,
             kSecReturnData  as String: kCFBooleanTrue,
             kSecMatchLimit  as String: kSecMatchLimitOne
         ]

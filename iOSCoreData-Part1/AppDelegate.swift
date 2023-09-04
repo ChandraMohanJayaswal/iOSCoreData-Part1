@@ -24,16 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Saving some default users inside KeyChain
         do {
-            try KeychainHandler.save(service: Bundle.main.bundleIdentifier!, account: "chandra", password: "chandra".data(using: .utf8) ?? Data())
+            try KeychainHandler.save(userName: "chandra", password: "chandra".data(using: .utf8) ?? Data())
+            try KeychainHandler.save(userName: "user", password: "password".data(using: .utf8) ?? Data())
+
         } catch {
             print(error)
         }
         
-        do {
-            try KeychainHandler.save(service: Bundle.main.bundleIdentifier!, account: "user", password: "password".data(using: .utf8) ?? Data())
-        } catch {
-            print(error)
-        }
+        
         
         
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { (notification: Notification) in

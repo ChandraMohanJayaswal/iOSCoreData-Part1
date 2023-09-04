@@ -13,20 +13,9 @@ class LoginVC: BaseVC {
 
     // MARK: - PRIVATE METHODS
     
-    func save(user: User) {
-        do {
-            try KeychainHandler.save(
-                service: "iOSCoreData",
-                account: user.userName,
-                password: user.password.data(using: .utf8) ?? Data()
-            )
-        } catch {
-            print(error)
-        }
-    }
     
     func isValidPassword(userName: String, password: String) -> Bool {
-        guard let data =  KeychainHandler.get(service: "iOSCoreData", account: userName) else {
+        guard let data =  KeychainHandler.get(userName: userName) else {
             print("Failed to read password")
             return false
         }
@@ -41,7 +30,6 @@ class LoginVC: BaseVC {
     // MARK: - ACATION METHODS
     
     @IBAction func btnLoginAction(_ sender: Any) {
-        let user = User(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "")
         if self.isValidPassword(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "") {
             self.moveToTabBarController()
         } else {
@@ -55,8 +43,6 @@ class LoginVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtUserName.text = "chandra"
-        self.txtPassword.text = "chandra"
     }
     
     // MARK: - DELEGATE METHODS
