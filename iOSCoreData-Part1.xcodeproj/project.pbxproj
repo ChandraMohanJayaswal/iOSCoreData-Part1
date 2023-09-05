@@ -27,6 +27,7 @@
 		97464E5E2AA4E21900A247A9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E5D2AA4E21900A247A9 /* User.swift */; };
 		97464E602AA4E53D00A247A9 /* InboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E5F2AA4E53D00A247A9 /* InboxVC.swift */; };
 		97464E622AA4E59200A247A9 /* SentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E612AA4E59200A247A9 /* SentVC.swift */; };
+		975D608D2AA6CFEB004F286A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D608C2AA6CFEB004F286A /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		97464E5D2AA4E21900A247A9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		97464E5F2AA4E53D00A247A9 /* InboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxVC.swift; sourceTree = "<group>"; };
 		97464E612AA4E59200A247A9 /* SentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentVC.swift; sourceTree = "<group>"; };
+		975D608C2AA6CFEB004F286A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				97464E572AA4DFD200A247A9 /* TabBarController.swift */,
 				97464E5F2AA4E53D00A247A9 /* InboxVC.swift */,
 				97464E612AA4E59200A247A9 /* SentVC.swift */,
+				975D608C2AA6CFEB004F286A /* RegisterVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				97462F932AA612500075BA8E /* KeychainHandler.swift in Sources */,
 				97462F912AA60D1F0075BA8E /* CoreData.xcdatamodeld in Sources */,
 				97464E1F2AA4DD5800A247A9 /* AppDelegate.swift in Sources */,
+				975D608D2AA6CFEB004F286A /* RegisterVC.swift in Sources */,
 				97464E5C2AA4E15900A247A9 /* BaseVC.swift in Sources */,
 				97464E212AA4DD5800A247A9 /* SceneDelegate.swift in Sources */,
 			);

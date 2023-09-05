@@ -27,6 +27,20 @@ class BaseVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func moveToRegisterVC() {
+        let viewControllers = self.navigationController?.viewControllers
+        if let viewControllers = viewControllers {
+            for aVC in viewControllers {
+                if aVC is RegisterVC {
+                    self.navigationController?.popToViewController(aVC, animated: false)
+                    return
+                }
+            }
+        }
+        let vc = NavigationHandler.initiateViewControllerWith(identifier: .RegisterVC, storyboardName: .Main) as! RegisterVC
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     func moveToTabBarController() {
         let storybaord = UIStoryboard(name: StoryboardNames.Main.rawValue, bundle: nil)
         let tabBarController = storybaord.instantiateViewController(withIdentifier: VCNames.TabBarController.rawValue) as! TabBarController

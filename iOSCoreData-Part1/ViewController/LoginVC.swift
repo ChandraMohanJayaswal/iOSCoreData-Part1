@@ -33,10 +33,14 @@ class LoginVC: BaseVC {
         if self.isValidPassword(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "") {
             self.moveToTabBarController()
         } else {
-            let alert = UIAlertController(title: "Message", message: "Invalid Username or Passoword!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Message", message: "Invalid Username or Passoword. Make sure you are already registered!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+    }
+    
+    @IBAction func btnRegisterAction(_ sender: Any) {
+        self.moveToRegisterVC()
     }
     
     // MARK: - OVERRIDE METHDOS
@@ -47,7 +51,5 @@ class LoginVC: BaseVC {
     
     // MARK: - DELEGATE METHODS
     
-    
-
 }
 

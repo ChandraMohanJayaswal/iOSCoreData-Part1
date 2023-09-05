@@ -21,19 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        //Saving some default users inside KeyChain
-        do {
-            try KeychainHandler.save(userName: "chandra", password: "chandra".data(using: .utf8) ?? Data())
-            try KeychainHandler.save(userName: "user", password: "password".data(using: .utf8) ?? Data())
 
-        } catch {
-            print(error)
-        }
-        
-        
-        
-        
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { (notification: Notification) in
             self.willEnterForeground()
         }
