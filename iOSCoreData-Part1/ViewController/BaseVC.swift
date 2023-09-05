@@ -13,6 +13,20 @@ class BaseVC: UIViewController {
     
     // MARK: - PUBLIC METHODS
     
+    func moveToSendEmailVC() {
+        let viewControllers = self.navigationController?.viewControllers
+        if let viewControllers = viewControllers {
+            for aVC in viewControllers {
+                if aVC is SendEmailVC {
+                    self.navigationController?.popToViewController(aVC, animated: false)
+                    return
+                }
+            }
+        }
+        let vc = NavigationHandler.initiateViewControllerWith(identifier: .SendEmailVC, storyboardName: .Main) as! SendEmailVC
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     func moveToLoginVC() {
         let viewControllers = self.navigationController?.viewControllers
         if let viewControllers = viewControllers {

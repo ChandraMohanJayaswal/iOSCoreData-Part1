@@ -9,7 +9,7 @@ import Foundation
 
 
 enum VCNames: String {
-    case LoginVC, TabBarController, InboxVC, SentVC, RegisterVC
+    case LoginVC, TabBarController, InboxVC, SentVC, RegisterVC, SendEmailVC
 }
 
 enum StoryboardNames: String {

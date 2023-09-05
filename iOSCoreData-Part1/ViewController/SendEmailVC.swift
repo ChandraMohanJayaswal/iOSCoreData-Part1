@@ -1,17 +1,17 @@
 //
-//  SentVC.swift
+//  SendEmailVC.swift
 //  iOSCoreData-Part1
 //
-//  Created by Chandra Jayaswal on 03/09/2023.
+//  Created by Chandra Jayaswal on 05/09/2023.
 //
 
 import UIKit
 
-class SentVC: BaseVC {
-
-    // MARK: - PRIVATE METHODS
+class SendEmailVC: BaseVC {
     @IBOutlet weak var lblStatus: UILabel!
-
+    
+    // MARK: - PRIVATE METHODS
+    
     private func loadData() {
         self.lblStatus.text = "Hi \(AppHandler.shared.loggedUserName ?? "NA")!"
     }
@@ -24,10 +24,9 @@ class SentVC: BaseVC {
         super.moveToLoginVC()
     }
     
-    @IBAction func btnSendEmailAction(_ sender: Any) {
-        self.moveToSendEmailVC()
+    @IBAction func btnBackAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: false)
     }
-    
     
     // MARK: - OVERRIDE METHDOS
     
@@ -35,7 +34,8 @@ class SentVC: BaseVC {
         super.viewDidLoad()
         self.loadData()
     }
-    
+
     // MARK: - DELEGATE METHODS
+    
     
 }

@@ -8,8 +8,13 @@
 import UIKit
 
 class InboxVC: BaseVC {
-
+    @IBOutlet weak var lblStatus: UILabel!
+    
     // MARK: - PRIVATE METHODS
+    
+    private func loadData() {
+        self.lblStatus.text = "Hi \(AppHandler.shared.loggedUserName ?? "NA")!"
+    }
     
     // MARK: - PUBLIC METHODS
     
@@ -19,10 +24,15 @@ class InboxVC: BaseVC {
         super.moveToLoginVC()
     }
     
+    @IBAction func btnSendEmailAction(_ sender: Any) {
+        self.moveToSendEmailVC()
+    }
+    
     // MARK: - OVERRIDE METHDOS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
     }
 
     // MARK: - DELEGATE METHODS

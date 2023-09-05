@@ -28,6 +28,8 @@
 		97464E602AA4E53D00A247A9 /* InboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E5F2AA4E53D00A247A9 /* InboxVC.swift */; };
 		97464E622AA4E59200A247A9 /* SentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97464E612AA4E59200A247A9 /* SentVC.swift */; };
 		975D608D2AA6CFEB004F286A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D608C2AA6CFEB004F286A /* RegisterVC.swift */; };
+		975D608F2AA6D85B004F286A /* AppHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D608E2AA6D85B004F286A /* AppHandler.swift */; };
+		975D60912AA6DDBA004F286A /* SendEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D60902AA6DDBA004F286A /* SendEmailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		97464E5F2AA4E53D00A247A9 /* InboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxVC.swift; sourceTree = "<group>"; };
 		97464E612AA4E59200A247A9 /* SentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentVC.swift; sourceTree = "<group>"; };
 		975D608C2AA6CFEB004F286A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		975D608E2AA6D85B004F286A /* AppHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHandler.swift; sourceTree = "<group>"; };
+		975D60902AA6DDBA004F286A /* SendEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 			children = (
 				97464E532AA4DF5900A247A9 /* NavigationHandler.swift */,
 				97462F922AA612500075BA8E /* KeychainHandler.swift */,
+				975D608E2AA6D85B004F286A /* AppHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				97464E5F2AA4E53D00A247A9 /* InboxVC.swift */,
 				97464E612AA4E59200A247A9 /* SentVC.swift */,
 				975D608C2AA6CFEB004F286A /* RegisterVC.swift */,
+				975D60902AA6DDBA004F286A /* SendEmailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -349,6 +355,8 @@
 				97462F8E2AA58F520075BA8E /* PersistentStorage.swift in Sources */,
 				97464E232AA4DD5800A247A9 /* LoginVC.swift in Sources */,
 				97464E562AA4DF8300A247A9 /* Contants.swift in Sources */,
+				975D608F2AA6D85B004F286A /* AppHandler.swift in Sources */,
+				975D60912AA6DDBA004F286A /* SendEmailVC.swift in Sources */,
 				97464E582AA4DFD200A247A9 /* TabBarController.swift in Sources */,
 				97464E5E2AA4E21900A247A9 /* User.swift in Sources */,
 				97462F932AA612500075BA8E /* KeychainHandler.swift in Sources */,

@@ -21,8 +21,18 @@ class LoginVC: BaseVC {
         }
         
         let savedPassword = String(decoding: data, as: UTF8.self)
-        print("Read password: \(password)")
-        return savedPassword == password
+        let status = (savedPassword == password)
+        if status {
+            AppHandler.shared.loggedUserName = userName
+        } else {
+            AppHandler.shared.loggedUserName = nil
+        }
+        return status
+    }
+    
+    func loadData() {
+        self.txtUserName.text = "chandra"
+        self.txtPassword.text = "chandra"
     }
     
     // MARK: - PUBLIC METHODS
@@ -30,7 +40,9 @@ class LoginVC: BaseVC {
     // MARK: - ACATION METHODS
     
     @IBAction func btnLoginAction(_ sender: Any) {
-        if self.isValidPassword(userName: self.txtUserName.text ?? "", password: self.txtPassword.text ?? "") {
+        let userName = self.txtUserName.text ?? ""
+        let password = self.txtPassword.text ?? ""
+        if self.isValidPassword(userName: userName, password: password) {
             self.moveToTabBarController()
         } else {
             let alert = UIAlertController(title: "Message", message: "Invalid Username or Passoword. Make sure you are already registered!", preferredStyle: .alert)
@@ -47,6 +59,7 @@ class LoginVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
     }
     
     // MARK: - DELEGATE METHODS
