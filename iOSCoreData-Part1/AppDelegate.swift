@@ -15,10 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func didEnterBackground() {
-
         PersistentStorage.shared.saveContext()
+        print("Document Directory: \(PersistentStorage.shared.documentDirectory())")
     }
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
