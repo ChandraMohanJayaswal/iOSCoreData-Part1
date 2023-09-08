@@ -2,7 +2,7 @@
 //  CDMessage+CoreDataProperties.swift
 //  iOSCoreData-Part1
 //
-//  Created by Chandra Jayaswal on 05/09/2023.
+//  Created by Chandra Jayaswal on 08/09/2023.
 //
 //
 
@@ -16,12 +16,13 @@ extension CDMessage {
         return NSFetchRequest<CDMessage>(entityName: "CDMessage")
     }
 
-    @NSManaged public var messageId: String?
-    @NSManaged public var sender: String?
-    @NSManaged public var receiver: String?
-    @NSManaged public var title: String?
     @NSManaged public var body: String?
+    @NSManaged public var messageId: String?
+    @NSManaged public var receiver: String?
+    @NSManaged public var sender: String?
     @NSManaged public var timestamp: Date?
+    @NSManaged public var title: String?
+    @NSManaged public var status: Int64
 
 }
 

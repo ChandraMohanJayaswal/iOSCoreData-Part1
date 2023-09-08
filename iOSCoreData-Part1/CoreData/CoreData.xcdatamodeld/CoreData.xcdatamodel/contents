@@ -5,6 +5,7 @@
         <attribute name="messageId" attributeType="String" defaultValueString="NA"/>
         <attribute name="receiver" attributeType="String" defaultValueString="NA"/>
         <attribute name="sender" attributeType="String" defaultValueString="NA"/>
+        <attribute name="status" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" attributeType="Date" defaultDateTimeInterval="715599780" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String" defaultValueString="NA"/>
         <uniquenessConstraints>

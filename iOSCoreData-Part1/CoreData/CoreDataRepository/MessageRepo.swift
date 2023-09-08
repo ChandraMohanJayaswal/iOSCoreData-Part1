@@ -13,6 +13,8 @@ protocol MessageRepoProtocol {
     func update(message: Message)
     func delete(message: Message)
     func readMessages() -> [Message]?
+    func readSentMessages() -> [Message]?
+    func readReceivedMessages() -> [Message]?
 }
 
 struct MessageRepo: MessageRepoProtocol {
@@ -24,6 +26,7 @@ struct MessageRepo: MessageRepoProtocol {
         cdMessage.receiver = message.receiver
         cdMessage.title = message.title
         cdMessage.body = message.body
+        cdMessage.emailStatus = message.emailStatus
         cdMessage.timestamp = message.timestamp
         PersistentStorage.shared.saveContext()
     }
@@ -38,6 +41,7 @@ struct MessageRepo: MessageRepoProtocol {
         cdMessage?.title = message.title
         cdMessage?.receiver = message.receiver
         cdMessage?.sender = message.sender
+        cdMessage?.emailStatus = message.emailStatus
         PersistentStorage.shared.saveContext()
     }
     
@@ -78,6 +82,42 @@ struct MessageRepo: MessageRepoProtocol {
             messages.append(message)
         })
         return messages
+    }
+    
+    func readSentMessages() -> [Message]? {
+        let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
+        let predicate = NSPredicate(format: "sender==%@", AppHandler.shared.loggedUserName! as CVarArg)
+        fetchRequest.predicate = predicate
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
+            var messages: [Message] = []
+            result.forEach { (cdMessage:CDMessage) in
+                let message = cdMessage.getMessage()
+                messages.append(message)
+            }
+            return messages
+        } catch {
+            debugPrint(error)
+        }
+        return nil
+    }
+    
+    func readReceivedMessages() -> [Message]? {
+        let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
+        let predicate = NSPredicate(format: "receiver==%@", AppHandler.shared.loggedUserName! as CVarArg)
+        fetchRequest.predicate = predicate
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
+            var messages: [Message] = []
+            result.forEach { (cdMessage:CDMessage) in
+                let message = cdMessage.getMessage()
+                messages.append(message)
+            }
+            return messages
+        } catch {
+            debugPrint(error)
+        }
+        return nil
     }
     
     private func getCDMessage(by id: String) -> CDMessage? {

@@ -45,7 +45,7 @@ class SendEmailVC: BaseVC {
         let title = self.txtTopic.text ?? ""
         let body = self.txtMessage.text ?? ""
         if sender != "" && receiver != "" && title != "" && body != "" {
-            let message = Message(messageId: UUID().uuidString, sender: sender, receiver: receiver, title: title, body: body, timestamp: Date())
+            let message = Message(messageId: UUID().uuidString, sender: sender, receiver: receiver, title: title, body: body, emailStatus: .none, timestamp: Date())
             let messageManager: MessageManager = MessageManager()
             messageManager.sendEmail(message: message)
         } else {

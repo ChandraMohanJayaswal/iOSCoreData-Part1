@@ -16,7 +16,7 @@ class InboxVC: BaseVC {
     
     private func loadData() {
         self.lblStatus.text = "Hi \(AppHandler.shared.loggedUserName ?? "NA")!"
-        self.messages = MessageManager().getAllEmails() ?? []
+        self.messages = MessageManager().getReceivedEmails() ?? []
         self.tblMessage.reloadData()
     }
     
@@ -59,8 +59,6 @@ extension InboxVC: UITableViewDataSource {
         return cell
         
     }
-    
-    
 }
 
 extension InboxVC: UITableViewDelegate {

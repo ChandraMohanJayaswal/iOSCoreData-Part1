@@ -26,4 +26,12 @@ struct MessageManager {
         return _messageRepo.readMessages()
     }
     
+    func getSentEmails() -> [Message]? {
+        return _messageRepo.readSentMessages()
+    }
+    
+    func getReceivedEmails() -> [Message]? {
+        return _messageRepo.readReceivedMessages()
+    }
+    
 }

@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum EmailStatus: Int {
+    case none       = 0
+    case deleted    = 1
+    case draft      = 2
+    case archived   = 3
+    case spam       = 4
+}
 
 enum VCNames: String {
     case LoginVC, TabBarController, InboxVC, SentVC, RegisterVC, SendEmailVC

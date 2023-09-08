@@ -8,12 +8,17 @@
 import UIKit
 
 class SentVC: BaseVC {
+    @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var tblMessage: UITableView!
+
+    var messages:[Message] = []
 
     // MARK: - PRIVATE METHODS
-    @IBOutlet weak var lblStatus: UILabel!
 
     private func loadData() {
         self.lblStatus.text = "Hi \(AppHandler.shared.loggedUserName ?? "NA")!"
+        self.messages = MessageManager().getSentEmails() ?? []
+        self.tblMessage.reloadData()
     }
     
     // MARK: - PUBLIC METHODS
@@ -37,5 +42,23 @@ class SentVC: BaseVC {
     }
     
     // MARK: - DELEGATE METHODS
+    
+}
+
+extension SentVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tblMessage.dequeueReusableCell(withIdentifier: "cellMessage")!
+        let message = self.messages[indexPath.row]
+        cell.textLabel?.text = message.title
+        return cell
+        
+    }
+}
+
+extension SentVC: UITableViewDelegate {
     
 }
