@@ -34,4 +34,8 @@ struct MessageManager {
         return _messageRepo.readReceivedMessages()
     }
     
+    func getDeletedEmails() -> [Message]? {
+        return _messageRepo.readMessages(of: .deleted)
+    }
+    
 }

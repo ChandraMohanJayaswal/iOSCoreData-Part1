@@ -35,6 +35,7 @@
 		975D608D2AA6CFEB004F286A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D608C2AA6CFEB004F286A /* RegisterVC.swift */; };
 		975D608F2AA6D85B004F286A /* AppHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D608E2AA6D85B004F286A /* AppHandler.swift */; };
 		975D60912AA6DDBA004F286A /* SendEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D60902AA6DDBA004F286A /* SendEmailVC.swift */; };
+		979F60482AAB1394007A6B8F /* DeletedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F60472AAB1394007A6B8F /* DeletedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		975D608C2AA6CFEB004F286A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		975D608E2AA6D85B004F286A /* AppHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHandler.swift; sourceTree = "<group>"; };
 		975D60902AA6DDBA004F286A /* SendEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailVC.swift; sourceTree = "<group>"; };
+		979F60472AAB1394007A6B8F /* DeletedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				97464E612AA4E59200A247A9 /* SentVC.swift */,
 				975D608C2AA6CFEB004F286A /* RegisterVC.swift */,
 				975D60902AA6DDBA004F286A /* SendEmailVC.swift */,
+				979F60472AAB1394007A6B8F /* DeletedVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				975D608D2AA6CFEB004F286A /* RegisterVC.swift in Sources */,
 				974E6A6F2AA8919B00B1C9F9 /* MessageManager.swift in Sources */,
 				97464E5C2AA4E15900A247A9 /* BaseVC.swift in Sources */,
+				979F60482AAB1394007A6B8F /* DeletedVC.swift in Sources */,
 				97464E212AA4DD5800A247A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

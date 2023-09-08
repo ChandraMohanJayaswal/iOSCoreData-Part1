@@ -15,6 +15,7 @@ protocol MessageRepoProtocol {
     func readMessages() -> [Message]?
     func readSentMessages() -> [Message]?
     func readReceivedMessages() -> [Message]?
+    func readMessages(of status: EmailStatus) -> [Message]?
 }
 
 struct MessageRepo: MessageRepoProtocol {
@@ -86,7 +87,7 @@ struct MessageRepo: MessageRepoProtocol {
     
     func readSentMessages() -> [Message]? {
         let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
-        let predicate = NSPredicate(format: "sender==%@", AppHandler.shared.loggedUserName! as CVarArg)
+        let predicate = NSPredicate(format: "sender==%@ AND status==\(Int64(EmailStatus.none.rawValue))", AppHandler.shared.loggedUserName! as CVarArg)
         fetchRequest.predicate = predicate
         do {
             let result = try PersistentStorage.shared.context.fetch(fetchRequest)
@@ -104,7 +105,25 @@ struct MessageRepo: MessageRepoProtocol {
     
     func readReceivedMessages() -> [Message]? {
         let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
-        let predicate = NSPredicate(format: "receiver==%@", AppHandler.shared.loggedUserName! as CVarArg)
+        let predicate = NSPredicate(format: "receiver==%@ AND status==\(Int64(EmailStatus.none.rawValue))", AppHandler.shared.loggedUserName! as CVarArg)
+        fetchRequest.predicate = predicate
+        do {
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
+            var messages: [Message] = []
+            result.forEach { (cdMessage:CDMessage) in
+                let message = cdMessage.getMessage()
+                messages.append(message)
+            }
+            return messages
+        } catch {
+            debugPrint(error)
+        }
+        return nil
+    }
+    
+    func readMessages(of status: EmailStatus) -> [Message]? {
+        let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
+        let predicate = NSPredicate(format: "status==%d", Int64(status.rawValue) as CVarArg)
         fetchRequest.predicate = predicate
         do {
             let result = try PersistentStorage.shared.context.fetch(fetchRequest)
