@@ -457,18 +457,41 @@
                                     <constraint firstAttribute="trailing" secondItem="Cv5-fl-Xw2" secondAttribute="trailing" constant="16" id="vEx-9r-abH"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kSP-J9-IrS" userLabel="tblMessage">
+                                <rect key="frame" x="0.0" y="108" width="393" height="661"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMessage" id="75r-dS-qrg">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="75r-dS-qrg" id="IDg-Dy-gPz">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TPs-8p-7Pa" id="xAe-3b-6dP"/>
+                                    <outlet property="delegate" destination="TPs-8p-7Pa" id="10J-1D-ZiC"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BxA-cP-ftW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kSP-J9-IrS" firstAttribute="top" secondItem="Hzn-Ti-E4o" secondAttribute="bottom" id="2CO-9Y-ag1"/>
+                            <constraint firstItem="BxA-cP-ftW" firstAttribute="bottom" secondItem="kSP-J9-IrS" secondAttribute="bottom" id="Exe-Wh-LSv"/>
+                            <constraint firstItem="kSP-J9-IrS" firstAttribute="leading" secondItem="BxA-cP-ftW" secondAttribute="leading" id="KKe-7G-IHh"/>
                             <constraint firstItem="BxA-cP-ftW" firstAttribute="trailing" secondItem="Hzn-Ti-E4o" secondAttribute="trailing" id="NFb-E1-y6y"/>
                             <constraint firstItem="Hzn-Ti-E4o" firstAttribute="leading" secondItem="BxA-cP-ftW" secondAttribute="leading" id="O4d-f0-kgt"/>
                             <constraint firstItem="Hzn-Ti-E4o" firstAttribute="top" secondItem="ewf-hM-oFe" secondAttribute="top" id="U01-wF-GgX"/>
+                            <constraint firstItem="BxA-cP-ftW" firstAttribute="trailing" secondItem="kSP-J9-IrS" secondAttribute="trailing" id="z7A-6D-lmg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" image="tray" catalog="system" selectedImage="tray" id="Dvs-Z2-eoL"/>
                     <connections>
                         <outlet property="lblStatus" destination="FhF-4n-J7K" id="Hua-8A-msw"/>
+                        <outlet property="tblMessage" destination="kSP-J9-IrS" id="OD3-aE-GP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRN-mq-PLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -51,21 +51,33 @@ struct MessageRepo: MessageRepoProtocol {
         PersistentStorage.shared.saveContext()
     }
         
+//    func readMessages() -> [Message]? {
+//        let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
+//        do {
+//            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
+//            var messages: [Message] = []
+//            result.forEach({ (cdMessage: CDMessage) in
+//                let message = cdMessage.getMessage()
+//                messages.append(message)
+//            })
+//            return messages
+//        } catch {
+//            debugPrint(error)
+//        }
+//        return nil
+//    }
+    
     func readMessages() -> [Message]? {
-        let fetchRequest = NSFetchRequest<CDMessage>(entityName: "CDMessage")
-        do {
-            let result = try PersistentStorage.shared.context.fetch(fetchRequest)
-            var messages: [Message] = []
-            result.forEach({ (cdMessage: CDMessage) in
-                let message = cdMessage.getMessage()
-                messages.append(message)
-            })
-            return messages
-        } catch {
-            debugPrint(error)
+        let result = PersistentStorage.shared.fetchManagedObject(managedObject: CDMessage.self)
+        guard let result = result else {
+            return nil
         }
-        return nil
-
+        var messages: [Message] = []
+        result.forEach({ (cdMessage: CDMessage) in
+            let message = cdMessage.getMessage()
+            messages.append(message)
+        })
+        return messages
     }
     
     private func getCDMessage(by id: String) -> CDMessage? {
