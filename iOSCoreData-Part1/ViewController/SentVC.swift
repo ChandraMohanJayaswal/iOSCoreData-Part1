@@ -10,11 +10,11 @@ import UIKit
 class SentVC: BaseVC {
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var tblMessage: UITableView!
-
+    
     var messages:[Message] = []
-
+    
     // MARK: - PRIVATE METHODS
-
+    
     private func loadData() {
         self.lblStatus.text = "Hi \(AppHandler.shared.loggedUserName ?? "NA")!"
         self.messages = MessageManager().getSentEmails() ?? []
@@ -69,14 +69,14 @@ extension SentVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        print("Deleted")
-          let message = self.messages[indexPath.row]
-          let messageManager = MessageManager()
-          message.emailStatus = .deleted
-          messageManager.updateEmail(message: message)
-          self.messages.remove(at: indexPath.row)
-          self.tblMessage.deleteRows(at: [indexPath], with: .automatic)
-      }
+        if editingStyle == .delete {
+            print("Deleted")
+            let message = self.messages[indexPath.row]
+            let messageManager = MessageManager()
+            message.emailStatus = .deleted
+            messageManager.updateEmail(message: message)
+            self.messages.remove(at: indexPath.row)
+            self.tblMessage.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }

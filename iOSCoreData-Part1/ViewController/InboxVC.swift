@@ -49,7 +49,7 @@ class InboxVC: BaseVC {
 
 extension InboxVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.messages.count
+        return self.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,5 +62,8 @@ extension InboxVC: UITableViewDataSource {
 }
 
 extension InboxVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let message = self.messages[indexPath.row]
+        debugPrint(message.description())
+    }
 }
